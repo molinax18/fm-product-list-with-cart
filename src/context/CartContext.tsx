@@ -12,9 +12,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   function addToCart(id: string) {
     const product = products.find((product) => product.id === id);
+
     if (product) {
       setItems((prevItems) => {
         const itemExists = prevItems.find((item) => item.id === id);
+
         if (itemExists) {
           return prevItems.map((item) =>
             item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
