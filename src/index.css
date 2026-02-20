@@ -13,3 +13,9 @@
 
   --font-red-hat-text: "Red Hat Text", sans-serif;
 }
+
+@layer base {
+  body {
+    @apply font-red-hat-text bg-rose-100;
+  }
+}
