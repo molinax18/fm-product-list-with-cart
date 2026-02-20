@@ -1,11 +1,11 @@
 import { formatDolarToUSD } from "@/utils/dolarFormat";
 import { useCart } from "@/context/CartContext";
+import { totalPrice } from "@/utils/cart";
 import type { ProductCartType } from "@/types/product";
 import RemoveItem from "./svg/RemoveItem";
 
 export default function CartItem({ item }: { item: ProductCartType }) {
   const { removeFromCart } = useCart();
-  const totalPrice = item.quantity * item.price;
 
   return (
     <article className="p-4 rounded-lg shadow-sm">
@@ -18,7 +18,7 @@ export default function CartItem({ item }: { item: ProductCartType }) {
               @{formatDolarToUSD(item.price).replace("$", "")}
             </span>
             <span className="text-rose-900 font-bold">
-              {formatDolarToUSD(totalPrice)}
+              {formatDolarToUSD(totalPrice(item))}
             </span>
           </div>
         </div>

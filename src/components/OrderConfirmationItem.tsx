@@ -1,4 +1,5 @@
 import type { ProductCartType } from "@/types/product";
+import { totalPrice } from "@/utils/cart";
 import { formatDolarToUSD } from "@/utils/dolarFormat";
 
 export default function OrderConfirmationItem({
@@ -6,8 +7,6 @@ export default function OrderConfirmationItem({
 }: {
   product: ProductCartType;
 }) {
-  const total = product.quantity * product.price;
-
   return (
     <article className="flex items-center justify-between gap-x-6">
       <div className="flex items-center gap-x-6">
@@ -26,7 +25,9 @@ export default function OrderConfirmationItem({
           </div>
         </div>
       </div>
-      <span className="text-rose-900 font-bold">{formatDolarToUSD(total)}</span>
+      <span className="text-rose-900 font-bold">
+        {formatDolarToUSD(totalPrice(product))}
+      </span>
     </article>
   );
 }

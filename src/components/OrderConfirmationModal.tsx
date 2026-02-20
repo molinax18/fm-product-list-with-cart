@@ -3,6 +3,7 @@ import { useCart } from "@/context/CartContext";
 import { formatDolarToUSD } from "@/utils/dolarFormat";
 import OrderConfirmationItem from "./OrderConfirmationItem";
 import OrderConfirmer from "./svg/OrderConfirmer";
+import { orderTotal } from "@/utils/cart";
 
 export default function OrderConfirmationModal({
   isOpen,
@@ -12,10 +13,6 @@ export default function OrderConfirmationModal({
   onClose: () => void;
 }) {
   const { cartItems, clearCart } = useCart();
-  const orderTotal = cartItems.reduce(
-    (acc, item) => acc + item.quantity * item.price,
-    0,
-  );
 
   if (!isOpen) return null;
 
@@ -36,7 +33,9 @@ export default function OrderConfirmationModal({
         </ul>
         <article className="self-start flex items-center gap-x-6 py-3 px-6 shadow-sm rounded-full md:self-stretch md:justify-center">
           <p>Order total</p>
-          <strong className="text-2xl">{formatDolarToUSD(orderTotal)}</strong>
+          <strong className="text-2xl">
+            {formatDolarToUSD(orderTotal(cartItems))}
+          </strong>
         </article>
         <button
           className="bg-red py-4 text-rose-50 rounded-full font-medium cursor-pointer"

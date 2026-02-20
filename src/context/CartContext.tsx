@@ -39,9 +39,26 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     setItems([]);
   }
 
+  function updateQuantity(id: string, quantity: number) {
+    if (quantity === 0) {
+      removeFromCart(id);
+      return;
+    }
+
+    setItems((prevItems) =>
+      prevItems.map((item) => (item.id === id ? { ...item, quantity } : item)),
+    );
+  }
+
   return (
     <CartContext.Provider
-      value={{ cartItems: items, addToCart, removeFromCart, clearCart }}
+      value={{
+        cartItems: items,
+        addToCart,
+        removeFromCart,
+        clearCart,
+        updateQuantity,
+      }}
     >
       {children}
     </CartContext.Provider>

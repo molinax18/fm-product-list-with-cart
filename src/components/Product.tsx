@@ -1,10 +1,12 @@
-import { useCart } from "@/context/CartContext";
 import type { ProductType } from "@/types/product";
 import { formatDolarToUSD } from "@/utils/dolarFormat";
-import AddToCart from "./svg/AddToCart";
+import ProductButton from "./ProductButton";
+import { useCart } from "@/context/CartContext";
+import { getQuantity } from "@/utils/cart";
 
 export default function Product({ product }: { product: ProductType }) {
-  const { addToCart } = useCart();
+  const { cartItems } = useCart();
+
   return (
     <article className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden max-w-96">
       <picture>
@@ -13,16 +15,15 @@ export default function Product({ product }: { product: ProductType }) {
         <img
           src={product.image.mobile}
           alt={product.name}
-          className="rounded-lg object-contain"
+          className={`rounded-lg object-cover ${getQuantity(product.id, cartItems) ? "border-2 border-red" : ""}`}
         />
       </picture>
-      <button
-        className="self-center inline-flex items-center gap-x-2 -mt-5 py-1 px-3 rounded-full bg-white border border-red cursor-pointer"
-        onClick={() => addToCart(product.id)}
-      >
-        <AddToCart />
-        Add to Cart
-      </button>
+
+      <ProductButton
+        id={product.id}
+        className="self-center inline-flex items-center gap-x-2 -mt-6 py-2 px-3 rounded-full"
+      />
+
       <section className="flex flex-col p-4">
         <p className="text-rose-300 text-sm">{product.category}</p>
         <h3 className="font-semibold">{product.name}</h3>

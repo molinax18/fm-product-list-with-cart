@@ -3,15 +3,12 @@ import { formatDolarToUSD } from "@/utils/dolarFormat";
 import { useModal } from "@/hooks/useModal";
 import CartItem from "./CartItem";
 import OrderConfirmationModal from "./OrderConfirmationModal";
+import { orderTotal } from "@/utils/cart";
 
 export default function Cart() {
   const { cartItems } = useCart();
   const { isOpen, openModal, closeModal } = useModal();
   const amount = cartItems.length;
-  const orderTotal = cartItems.reduce(
-    (acc, item) => acc + item.quantity * item.price,
-    0,
-  );
 
   if (cartItems.length === 0) {
     return (
@@ -45,7 +42,9 @@ export default function Cart() {
         </ul>
         <article className="self-start flex items-center gap-x-6 py-3 px-6 shadow-sm rounded-full md:self-stretch md:justify-center">
           <p>Order total</p>
-          <strong className="text-2xl">{formatDolarToUSD(orderTotal)}</strong>
+          <strong className="text-2xl">
+            {formatDolarToUSD(orderTotal(cartItems))}
+          </strong>
         </article>
 
         <article className="flex items-center gap-x-3 p-4 bg-amber-50 rounded-full">
