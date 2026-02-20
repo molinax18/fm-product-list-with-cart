@@ -9,16 +9,19 @@ export const CartContext = createContext<CartContextType | undefined>(
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<ProductCartType[]>([]);
-  const amount = items.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0,
-  );
 
   function addToCart(id: string) {
     const product = products.find((product) => product.id === id);
-    //Corregir
     if (product) {
-      setItems((prevItems) => [...prevItems, { ...product, quantity: 1 }]);
+      setItems((prevItems) => {
+        const itemExists = prevItems.find((item) => item.id === id);
+        if (itemExists) {
+          return prevItems.map((item) =>
+            item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
+          );
+        }
+        return [...prevItems, { ...product, quantity: 1 }];
+      });
     }
   }
 
@@ -36,7 +39,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <CartContext.Provider
-      value={{ amount, cartItems: items, addToCart, removeFromCart, clearCart }}
+      value={{ cartItems: items, addToCart, removeFromCart, clearCart }}
     >
       {children}
     </CartContext.Provider>
