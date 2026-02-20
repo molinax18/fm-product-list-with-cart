@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
-import type { CartContextType } from "../types/cartContext";
-import type { ProductCartType } from "../types/product";
-import products from "../data.json";
+import type { CartContextType } from "@/types/cartContext";
+import type { ProductCartType } from "@/types/product";
+import products from "@/data.json";
 
 export const CartContext = createContext<CartContextType | undefined>(
   undefined,
