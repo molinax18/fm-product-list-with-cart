@@ -8,7 +8,7 @@ export default function OrderConfirmationItem({
   product: ProductCartType;
 }) {
   return (
-    <article className="flex items-center justify-between gap-x-6">
+    <article className="flex items-center justify-between gap-x-6 p-2 rounded-lg shadow-sm">
       <div className="flex items-center gap-x-6">
         <img
           src={product.image.thumbnail}

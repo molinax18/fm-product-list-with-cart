@@ -1,9 +1,9 @@
 import { useCart } from "@/context/CartContext";
 import { formatDolarToUSD } from "@/utils/dolarFormat";
 import { useModal } from "@/hooks/useModal";
+import { orderTotal } from "@/utils/cart";
 import CartItem from "./CartItem";
 import OrderConfirmationModal from "./OrderConfirmationModal";
-import { orderTotal } from "@/utils/cart";
 
 export default function Cart() {
   const { cartItems } = useCart();

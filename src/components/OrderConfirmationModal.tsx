@@ -1,9 +1,9 @@
 import { createPortal } from "react-dom";
 import { useCart } from "@/context/CartContext";
+import { orderTotal } from "@/utils/cart";
 import { formatDolarToUSD } from "@/utils/dolarFormat";
 import OrderConfirmationItem from "./OrderConfirmationItem";
 import OrderConfirmer from "./svg/OrderConfirmer";
-import { orderTotal } from "@/utils/cart";
 
 export default function OrderConfirmationModal({
   isOpen,
