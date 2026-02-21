@@ -29,6 +29,7 @@ export default function ProductButton({ id, className }: ProductButtonProps) {
     <div className={`${className} bg-red text-white cursor-pointer`}>
       <button
         className="cursor-pointer px-5"
+        aria-label="Remove one"
         onClick={() => {
           updateQuantity(id, quantity - 1);
         }}
@@ -38,6 +39,7 @@ export default function ProductButton({ id, className }: ProductButtonProps) {
       <span>{quantity}</span>
       <button
         className="cursor-pointer px-5"
+        aria-label="Add one"
         onClick={() => {
           updateQuantity(id, quantity + 1);
         }}

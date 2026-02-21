@@ -1,75 +1,89 @@
-# React + TypeScript + Vite
+# Frontend Mentor - Product list with cart solution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a solution to the [Product list with cart challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/product-list-with-cart-5MmqLVAp_d). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-Currently, two official plugins are available:
+## Table of contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [AI Collaboration](#ai-collaboration)
+- [Author](#author)
 
-## React Compiler
+## Overview
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+### The challenge
 
-Note: This will impact Vite dev & build performances.
+Users should be able to:
 
-## Expanding the ESLint configuration
+- Add items to the cart and remove them
+- Increase/decrease the number of items in the cart
+- See an order confirmation modal when they click "Confirm Order"
+- Reset their selections when they click "Start New Order"
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Screenshot
 
-```js
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
+![Design preview for the Product list with cart coding challenge](./fm-resources/preview.jpg)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Links
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+- Solution URL: [GitHub Repository](https://github.com/molinax18/fm-product-list-with-cart)
+- Live Site URL: [Live Demo](https://molinax18.github.io/fm-product-list-with-cart/)
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [TypeScript](https://www.typescriptlang.org/) - For type safety
+- [Tailwind CSS v4](https://tailwindcss.com/) - For styling
+- [Vite](https://vitejs.dev/) - Frontend Tooling
+- Flexbox & CSS Grid
+
+### What I learned
+
+Throughout this project, I strengthened my understanding of React state management using the Context API, specifically for handling the shopping cart logic. I also improved my knowledge of accessibility (a11y) by applying ARIA attributes where necessary to improve screen reader experiences.
+
+Here's an example of how I applied accessibility to the product quantity buttons:
+
+```tsx
+<button
+  className="cursor-pointer px-5"
+  aria-label="Remove one"
+  onClick={() => updateQuantity(id, quantity - 1)}
+>
+  <span className="rounded-full border border-white px-1.5">-</span>
+</button>
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Additionally, I worked with the `<picture>` tag to implement art direction for responsive images, saving bandwidth by loading the optimal image size for each view:
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```html
+<picture>
+  <source media="(min-width:650px)" srcset="{product.image.desktop}" />
+  <source media="(min-width:465px)" srcset="{product.image.tablet}" />
+  <img src="{product.image.mobile}" alt="{product.name}" />
+</picture>
 ```
+
+### Continued development
+
+In future projects, I want to continue focusing on semantic HTML, accessible rich web apps, and exploring advanced patterns in React such as custom hooks and performance optimization.
+
+### AI Collaboration
+
+For this project, I collaborated with an AI coding assistant following the `AGENTS.md` structured guidelines. The AI acted as a mentor, guiding me through the implementation by asking questions and providing hints rather than giving direct solutions. This interactive approach helped solidify my understanding of accessible web development practices and correct React state patterns.
+
+## Author
+
+- Frontend Mentor - [@molinax18](https://www.frontendmentor.io/profile/molinax18)
+- GitHub - [@molinax18](https://github.com/molinax18)

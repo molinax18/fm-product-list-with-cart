@@ -38,7 +38,7 @@ export default function OrderConfirmationModal({
           </strong>
         </article>
         <button
-          className="bg-red py-4 text-rose-50 rounded-full font-medium cursor-pointer"
+          className="bg-red py-4 text-rose-50 rounded-full font-medium cursor-pointer hover:opacity-90 transition-opacity duration-200"
           onClick={() => {
             clearCart();
             onClose();

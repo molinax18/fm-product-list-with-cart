@@ -31,7 +31,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     const product = products.find((product) => product.id === id);
 
     if (product) {
-      setItems(items.filter((item) => item.id !== id));
+      setItems((prev) => prev.filter((item) => item.id !== id));
     }
   }
 

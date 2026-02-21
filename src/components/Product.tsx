@@ -21,7 +21,7 @@ export default function Product({ product }: { product: ProductType }) {
 
       <ProductButton
         id={product.id}
-        className="self-center inline-flex items-center gap-x-2 -mt-6 py-2 px-3 rounded-full"
+        className="self-center inline-flex items-center gap-x-2 -mt-6 py-2 px-3 rounded-full hover:opacity-95 transition-opacity duration-200"
       />
 
       <section className="flex flex-col p-4">

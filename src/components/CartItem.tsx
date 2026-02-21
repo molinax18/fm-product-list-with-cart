@@ -23,7 +23,8 @@ export default function CartItem({ item }: { item: ProductCartType }) {
           </div>
         </div>
         <button
-          className="text-rose-500 p-1 border border-rose-300 rounded-full cursor-pointer"
+          className="text-rose-500 p-1 border border-rose-300 rounded-full cursor-pointer hover:bg-rose-100 transition-colors duration-200"
+          aria-label="Remove item"
           onClick={() => removeFromCart(item.id)}
         >
           <RemoveItem />
