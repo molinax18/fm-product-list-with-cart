@@ -1,5 +1,5 @@
 import { useCart } from "@/context/CartContext";
-import { formatDolarToUSD } from "@/utils/dolarFormat";
+import { formatDolarToUSD } from "@/utils/formatDolar";
 import { useModal } from "@/hooks/useModal";
 import { orderTotal } from "@/utils/cart";
 import CartItem from "./CartItem";

@@ -1,6 +1,6 @@
 import type { ProductCartType } from "@/types/product";
 import { totalPrice } from "@/utils/cart";
-import { formatDolarToUSD } from "@/utils/dolarFormat";
+import { formatDolarToUSD } from "@/utils/formatDolar";
 
 export default function OrderConfirmationItem({
   product,

@@ -1,4 +1,4 @@
-import { formatDolarToUSD } from "@/utils/dolarFormat";
+import { formatDolarToUSD } from "@/utils/formatDolar";
 import { useCart } from "@/context/CartContext";
 import { totalPrice } from "@/utils/cart";
 import type { ProductCartType } from "@/types/product";

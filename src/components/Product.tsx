@@ -1,5 +1,5 @@
 import type { ProductType } from "@/types/product";
-import { formatDolarToUSD } from "@/utils/dolarFormat";
+import { formatDolarToUSD } from "@/utils/formatDolar";
 import ProductButton from "./ProductButton";
 import { useCart } from "@/context/CartContext";
 import { getQuantity } from "@/utils/cart";
@@ -15,13 +15,13 @@ export default function Product({ product }: { product: ProductType }) {
         <img
           src={product.image.mobile}
           alt={product.name}
-          className={`rounded-lg object-cover ${getQuantity(product.id, cartItems) ? "border-2 border-red" : ""}`}
+          className={`rounded-lg object-cover ${getQuantity(product.id, cartItems) ? "border-2 border-red" : "border-2 border-transparent"}`}
         />
       </picture>
 
       <ProductButton
         id={product.id}
-        className="self-center inline-flex items-center gap-x-2 -mt-6 py-2 px-3 rounded-full hover:opacity-95 transition-opacity duration-200"
+        className="self-center inline-flex items-center gap-x-2 -mt-6 py-2 px-3 rounded-full"
       />
 
       <section className="flex flex-col p-4">

@@ -1,17 +1,19 @@
 import { createPortal } from "react-dom";
 import { useCart } from "@/context/CartContext";
 import { orderTotal } from "@/utils/cart";
-import { formatDolarToUSD } from "@/utils/dolarFormat";
+import { formatDolarToUSD } from "@/utils/formatDolar";
 import OrderConfirmationItem from "./OrderConfirmationItem";
 import OrderConfirmer from "./svg/OrderConfirmer";
+
+interface OrderConfirmationModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
 
 export default function OrderConfirmationModal({
   isOpen,
   onClose,
-}: {
-  isOpen: boolean;
-  onClose: () => void;
-}) {
+}: OrderConfirmationModalProps) {
   const { cartItems, clearCart } = useCart();
 
   if (!isOpen) return null;
