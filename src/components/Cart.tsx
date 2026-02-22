@@ -17,7 +17,7 @@ export default function Cart() {
 
         <div>
           <img
-            src="/images/illustration-empty-cart.svg"
+            src="images/illustration-empty-cart.svg"
             alt="Empty cart"
             className="size-72 mx-auto"
           />
@@ -48,7 +48,7 @@ export default function Cart() {
         </article>
 
         <article className="flex items-center gap-x-3 p-4 bg-amber-50 rounded-full">
-          <img src="/images/icon-carbon-neutral.svg" alt="Carbon neutral" />
+          <img src="images/icon-carbon-neutral.svg" alt="Carbon neutral" />
           <p>
             This is an <b>carbon-neutral</b> delivery
           </p>
