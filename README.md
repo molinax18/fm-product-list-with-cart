@@ -30,7 +30,7 @@ Users should be able to:
 
 ### Screenshot
 
-![Design preview for the Product list with cart coding challenge](./fm-resources/preview.jpg)
+![Design preview for the Product list with cart coding challenge](./public/screenshots/screenshot-desktop.png)
 
 ### Links
 
